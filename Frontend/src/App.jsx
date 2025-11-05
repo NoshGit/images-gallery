@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   // const [count, setCount] = useState(0)
 
-  return <h1>Welcome to React</h1>;
+  return <h1>Welcome to Image Gallery</h1>;
 }
 
 export default App;
