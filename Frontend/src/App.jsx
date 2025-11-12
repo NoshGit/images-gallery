@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Search from './components/Search';
 import ImageCard from './components/ImageCard';
 import { Container, Row, Col } from 'react-bootstrap';
+import Welcome from './components/Welcome.jsx';
 
 const env = import.meta.env;
 
@@ -57,14 +58,17 @@ function App() {
       />
 
       <Container className="mt-4">
-        <Row xs={1} md={2} lg={3} className="g-4">
-          {!!images.length &&
-            images.map((image, i) => (
+        {images.length ? (
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {images.map((image, i) => (
               <Col key={i}>
                 <ImageCard image={image} deleteImage={handleDeleteImage} />
               </Col>
             ))}
-        </Row>
+          </Row>
+        ) : (
+          <Welcome />
+        )}
       </Container>
     </div>
   );
