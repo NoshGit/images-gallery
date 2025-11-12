@@ -1,20 +1,19 @@
 import PropTypes from 'prop-types';
 import { Navbar, Container } from 'react-bootstrap';
-import Logo from './../assets/images/logo.png';
+import LogoText from './../assets/images/logo.svg?react';
 
 const Header = ({ title }) => {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
         <Navbar.Brand href="/">
-          <img
-            alt=""
-            src={Logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
+          <LogoText
+            alt={title}
+            style={{
+              maxWidth: '12rem',
+              maxHeight: '3rem',
+            }}
           />
-          {' ' + title}
         </Navbar.Brand>
       </Container>
     </Navbar>
