@@ -10,8 +10,7 @@ import Welcome from './components/Welcome.jsx';
 const env = import.meta.env;
 
 function App() {
-  // const UNSPLASH_KEY = env.VITE_UNSPLASH_ACCESS_KEY;
-  const SOURCESPLASH_KEY = env.VITE_SOURCESPLASH_ACCESS_KEY;
+  const UNSPLASH_KEY = env.VITE_UNSPLASH_ACCESS_KEY;
 
   const [search, setSearch] = useState('');
   const [images, setImages] = useState([]);
@@ -19,16 +18,9 @@ function App() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
 
-    //TODO: remove source splash API implementation once unsplash is Active.
-
-    // fetch(
-    //   `https://api.unsplash.com/search/random?query=${search}&client_id=${UNSPLASH_KEY}`
-    // )
-    fetch(`https://api.sourcesplash.com/api/random?q=${search}`, {
-      headers: {
-        Authorization: `Bearer ${SOURCESPLASH_KEY}`,
-      },
-    })
+    fetch(
+      `https://api.unsplash.com/photos/random?query=${search}&client_id=${UNSPLASH_KEY}`
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
